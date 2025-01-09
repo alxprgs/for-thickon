@@ -1,0 +1,11 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://static.tildacdn.com/tild3630-6231-4133-b161-386332303865/802625.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+}

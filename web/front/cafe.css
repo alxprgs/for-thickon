@@ -1,0 +1,185 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://static.tildacdn.com/tild3630-6231-4133-b161-386332303865/802625.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+        header {
+            background-color: #2a472a;
+            padding: 15px;
+            text-align: center;
+            color: #a8d5a8;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            height: 100vh;
+            width: 250px;
+            background-color: #2a472a;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .navbar img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .navbar ul li {
+            width: 100%;
+        }
+
+        .navbar ul li a {
+            display: block;
+            text-decoration: none;
+            color: #a8d5a8;
+            padding: 15px 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #3d5f3d;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #355e35;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #d6efd6;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #2a472a;
+            border-radius: 10px;
+            padding: 30px;
+            width: 40%;
+            color: white;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .modal-close {
+            font-size: 24px;
+            cursor: pointer;
+            color: #d6efd6;
+        }
+
+        .modal-close:hover {
+            color: #a8d5a8;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #3d5f3d;
+            color: white;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        #totalPrice {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #a8d5a8;
+        }
+
+        .order-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h4 {
+    font: bold 2em Impact, sans-serif; 
+    -webkit-text-stroke: 2px black; 
+    color: white; 
+    text-align: center;
+    margin: 20px 0; 
+}

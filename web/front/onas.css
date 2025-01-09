@@ -1,0 +1,80 @@
+body {
+    background-color:#225022;
+   }
+   
+   header {
+               background-color: #2a472a;
+               padding: 15px;
+               text-align: center;
+               color: #a8d5a8;
+               font-size: 24px;
+               font-weight: bold;
+           }
+   
+           .navbar {
+               height: 100vh;
+               width: 250px;
+               background-color: #2a472a;
+               position: fixed;
+               left: 0;
+               top: 0;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               padding-top: 20px;
+           }
+   
+           .navbar img {
+               width: 120px;
+               height: 120px;
+               margin-bottom: 20px;
+               border-radius: 50%;
+               object-fit: cover;
+           }
+   
+           .navbar ul {
+               list-style: none;
+               padding: 0;
+               margin: 0;
+               width: 100%;
+           }
+   
+           .navbar ul li {
+               width: 100%;
+           }
+   
+           .navbar ul li a {
+               display: block;
+               text-decoration: none;
+               color: #a8d5a8;
+               padding: 15px 20px;
+               font-size: 18px;
+               transition: background-color 0.3s;
+           }
+   
+           .navbar ul li a:hover {
+               background-color: #3d5f3d;
+           }
+   
+           .content {
+               margin-left: 250px;
+               padding: 20px;
+           }
+           .card-container {
+       margin-top: 20px; /* Отступ от верхнего navbar */
+       text-align: center; /* Центрует содержимое внутри контейнера */
+   }
+   
+   .card-container img {
+       width: 5%; /* Уменьшает размер изображения */
+       height: auto; /* Сохраняет пропорции */
+       position: absolute; /* Позволяет управлять точным расположением */
+       top: 10%; /* Расположение от верхнего края окна */
+       right: 1180px; /* Устанавливает отступ от левого края (navbar) */
+       border: 5px solid #a8d5a8; /* Рамка: ширина, стиль и цвет */
+       border-radius: 10px; /* Скругленные углы (опционально) */
+   }
+   
+   
+   
+   
