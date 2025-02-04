@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Dolce Goose</title>
-    <link rel="icon" href="static/image/Goose1.jpg" type="image/png">
-    <link rel="stylesheet" href="static/cafe.css" /> 
+    <link rel="icon" href="/static/photo_2025-01-04_15-52-31.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/cafe.css">
+
+    
 </head>
 <body>
     <header>
@@ -13,38 +16,38 @@
     </header>
 
     <aside class="navbar">
-        <img src="static/image/Goose1.jpg" alt="Лого">
+        <img src="/static/photo_2025-01-04_15-52-31.jpg" alt="Лого">
         <ul>
-            <li><a href="/" target="_self">Главная</a></li>
-            <li><a href="/onas" target="_self">О нас</a></li>
-            <li><a href="#menu" target="_self">Меню</a></li>
-            <li><a href="/contact" target="_self">Контакты</a></li>            
+            <li><a href="#home">Главная</a></li>
+            <li><a href="/review">Отзывы</a></li>
+            <li><a href="/menu">Меню</a></li>
+            <li><a href="/onas">О нас</a></li>
         </ul>
     </aside>
 
     <div class="content">
         <section id="home">
             <h4>Главная</h4>
-            <h4>Добро пожаловать в наше уютное кафе, где вы найдёте вкусные блюда и приятную атмосферу.</h4>
+            <h4>Добро пожаловать в наше уютное кафе, еда со всего мира</h4>
         </section>
 
         <section id="menu">
             <h4>Блюда</h4>
             <div class="card-container">
-                <div class="card" onclick="showDetails('Лобстер на гриле', 'Свежий лобстер, приготовленный на гриле. Время приготовления: 20 минут', 1899)">
-                    <img src="static/image/lobster.jpg" alt="Лобстер">
+                <div class="card" onclick="showDetails('Лобстер на гриле', 'Свежий лобстер, приготовленный на гриле, с легкой приправой и ароматными травами. Время приготовления: 20 минут. Подается с гарниром из запеченных овощей и сливочным соусом. Отличный выбор для любителей морепродуктов.', 1899)">
+                    <img src="/static/image/lobster.jpg" alt="Лобстер">
                     <p>Лобстер на гриле<br>1899₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Лосось на гриле', 'Сочный лосось, приготовленный на гриле. Время приготовления: 15 минут', 1599)">
-                    <img src="static/image/losos.jpg" alt="Лосось">
+                <div class="card" onclick="showDetails('Лосось на гриле', 'Сочный лосось, приготовленный на гриле, с медово-горчичным соусом и свежими зеленью. Время приготовления: 15 минут. Идеален для здорового питания и поклонников рыбы.', 1599)">
+                    <img src="/static/image/losos.jpg" alt="Лосось">
                     <p>Лосось на гриле<br>1599₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Чизкейк', 'Нежный чизкейк с ванильным кремом. Время приготовления: 10 минут', 499)">
-                    <img src="static/image/chesscake.jpg" alt="Чизкейк">
+                <div class="card" onclick="showDetails('Чизкейк', 'Нежный чизкейк с ванильным кремом и фруктами. Тонкая текстура, идеально сбалансированный вкус. Время приготовления: 10 минут. Сладкое наслаждение для ценителей десертов.', 499)">
+                    <img src="/static/image/chesscake.jpg" alt="Чизкейк">
                     <p>Чизкейк<br>499₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Салат Цезарь', 'Классический салат с курицей, листьями салата и пармезаном. Время приготовления: 10 минут', 699)">
-                    <img src="static/image/salatcesar.jpg" alt="Салат Цезарь">
+                <div class="card" onclick="showDetails('Салат Цезарь', 'Классический салат с курицей, листьями свежего салата, помидорами и пармезаном. Время приготовления: 10 минут. Идеальный вариант для легкого обеда или ужина.', 699)">
+                    <img src="/static/image/salatcesar.jpg" alt="Салат Цезарь">
                     <p>Салат Цезарь<br>699₽</p>
                 </div>
             </div>
@@ -53,24 +56,25 @@
         <section id="drinks">
             <h4>Напитки</h4>
             <div class="card-container">
-                <div class="card" onclick="showDetails('Кофе капучино', 'Классический капучино с нежной пенкой. Время приготовления: 5 минут', 299)">
-                    <img src="static/image/cappuchino.jpg" alt="Капучино">
+                <div class="card" onclick="showDetails('Кофе капучино', 'Классический капучино с нежной пенкой из молока и эспрессо. Идеально для утреннего пробуждения или небольшого перерыва. Время приготовления: 5 минут.', 299)">
+                    <img src="/static/image/cappuchino.jpg" alt="Капучино">
                     <p>Кофе капучино<br>299₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Чай зелёный', 'Свежезаваренный зелёный чай. Время приготовления: 3 минуты', 199)">
-                    <img src="static/image/zelenychai.jpg" alt="Чай">
+                <div class="card" onclick="showDetails('Чай зелёный', 'Свежезаваренный зелёный чай с ароматом жасмина и трав. Легкий и утоляющий жажду. Время приготовления: 3 минуты.', 199)">
+                    <img src="/static/image/zelenychai.jpg" alt="Чай">
                     <p>Чай зелёный<br>199₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Американо', 'Классический чёрный кофе. Время приготовления: 5 минут', 199)">
-                    <img src="static/image/image1_0.jpg" alt="Американо">
+                <div class="card" onclick="showDetails('Американо', 'Классический чёрный кофе с мягким вкусом и богатым ароматом. Время приготовления: 5 минут. Отличный выбор для любителей крепкого кофе.', 199)">
+                    <img src="/static/image/image1_0.jpg" alt="Американо">
                     <p>Американо<br>199₽</p>
                 </div>
-                <div class="card" onclick="showDetails('Морс ягодный', 'Свежий ягодный морс. Время приготовления: 3 минуты', 149)">
-                    <img src="static/image/sok.jpg" alt="Морс">
+                <div class="card" onclick="showDetails('Морс ягодный', 'Свежий ягодный морс с добавлением натурального меда. Натуральный вкус и витаминная поддержка. Время приготовления: 3 минуты.', 149)">
+                    <img src="/static/image/sok.jpg" alt="Морс">
                     <p>Морс ягодный<br>149₽</p>
                 </div>
             </div>
         </section>
+        
         
 
     <div id="loginModal" class="modal">
@@ -96,5 +100,32 @@
             <button class="order-button" onclick="orderItem()">Заказать</button>
         </div>
     </div>
+
+    <script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showDetails(title, description, price) {
+            document.getElementById('detailsTitle').innerText = title;
+            document.getElementById('detailsDescription').innerText = description;
+            document.getElementById('detailsPrice').innerText = `Цена: ${price}₽`;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function login() {
+            closeModal('loginModal');
+            alert('Добро пожаловать!');
+        }
+
+        function orderItem() {
+            alert('Блюдо добавлено в заказ!');
+            closeModal('detailsModal');
+        }
+
+        window.onload = () => {
+            document.getElementById('loginModal').style.display = 'flex';
+        };
+    </script>
 </body>
 </html>

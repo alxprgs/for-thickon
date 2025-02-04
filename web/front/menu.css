@@ -1,0 +1,235 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #2e4b2e; 
+    color: #000;
+    }
+    
+    
+    header {
+    background: linear-gradient(90deg, #1f3d1f, #3e6b3e); 
+    padding: 20px;
+    text-align: center;
+    color: #ffffff; 
+    font-size: 28px; 
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    text-transform: uppercase; 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+    border-bottom: 2px solid #a8d5a8; 
+    }
+    
+    .navbar {
+    height: 100vh;
+    width: 250px;
+    background-color: #1f3d1f;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); 
+    border-right: 2px solid #a8d5a8; 
+    }
+    
+    .navbar img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #a8d5a8; 
+    transition: transform 0.3s;
+    }
+    
+    .navbar img:hover {
+    transform: scale(1.1); 
+    }
+    
+    .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    }
+    
+    .navbar ul li {
+    width: 100%;
+    text-align: left;
+    }
+    
+    .navbar ul li a {
+    display: block;
+    text-decoration: none;
+    color: #a8d5a8;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 3px solid transparent; 
+    transition: all 0.3s; 
+    }
+    
+    .navbar ul li a:hover {
+    background-color: #3e6b3e; 
+    border-left: 3px solid #a8d5a8; 
+    color: #ffffff;
+    padding-left: 25px;
+    }
+    
+    .content {
+    margin-left: 250px;
+    padding: 20px;
+    }
+    
+    .card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    }
+    
+    .card {
+    flex: 0 48%;
+    background-color: #355e35;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #d6efd6;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    }
+    
+    .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    }
+    
+    .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .modal-content {
+    background-color: #1f3b1f; 
+    border-radius: 15px; 
+    padding: 40px;
+    width: 45%; 
+    color: #e5ffe5;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); 
+    border: 2px solid #4caf50; 
+    position: relative;
+    }
+    
+    .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4caf50; 
+    padding-bottom: 10px;
+    }
+    
+    .modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #cfe9cf; 
+    font-weight: bold;
+    position: relative;
+    }
+    
+    .modal-header h2::before {
+    content: "★"; 
+    color: #ffeb3b; 
+    margin-right: 10px;
+    }
+    
+    .modal-header h2::after {
+    content: "⚘"; 
+    color: #ffeb3b;
+    margin-left: 10px;
+    }
+    
+    .modal-close {
+    font-size: 26px;
+    cursor: pointer;
+    color: #d6efd6;
+    transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .modal-close:hover {
+    color: #a8d5a8;
+    transform: rotate(90deg);
+    }
+    
+    .modal-close::before {
+    content: "";
+    color: inherit;
+    }
+    
+    input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #3d5f3d;
+    color: white;
+    }
+    
+    button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    }
+    
+    #totalPrice {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #a8d5a8;
+    }
+    
+    .order-button {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    }
+    
+    h4 {
+    font: bold 2em Impact, sans-serif; 
+    -webkit-text-stroke: 2px black; 
+    color: white; 
+    text-align: center;
+    margin: 20px 0; 
+    }
+    

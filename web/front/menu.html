@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Dolce Goose</title>
+    <link rel="icon" href="/static/photo_2025-01-04_15-52-31.jpg" type="image/png">
+    <link rel="stylesheet" href="/static/menu.css">
+</head>
+   
+<body>
+    <header>
+        Добро пожаловать в наше Кафе!
+    </header>
+
+    <aside class="navbar">
+        <img src="/static/photo_2025-01-04_15-52-31.jpg" alt="Лого">
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/review">Отзывы</a></li>
+            <li><a href="/menu">Меню</a></li>
+            <li><a href="/onas">О нас</a></li>
+        </ul>
+    </aside>
+
+    <div class="content">
+        <section id="home">
+          
+        </section>
+
+        <section id="menu">
+            <h4>Блюда</h4>
+            <div class="card-container">
+                <div class="card" onclick="showDetails('Лобстер на гриле', 'Свежий лобстер, приготовленный на гриле, с легкой приправой и ароматными травами. Время приготовления: 20 минут. Подается с гарниром из запеченных овощей и сливочным соусом. Отличный выбор для любителей морепродуктов.', 1899)">
+                    <img src="/static/image/lobster.jpg" alt="Лобстер">
+                    <p>Лобстер на гриле<br>1200₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Лосось на гриле', 'Сочный лосось, приготовленный на гриле, с медово-горчичным соусом и свежими зеленью. Время приготовления: 15 минут. Идеален для здорового питания и поклонников рыбы.', 1599)">
+                    <img src="/static/image/losos.jpg" alt="Лосось">
+                    <p>Лосось на гриле<br>550₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Рыба на гриле', 'Нежное филе рыбы, приготовленное на гриле с лимонным соком, оливковым маслом и специями. Время приготовления: 1,5 часа', 1399)">
+                    <img src="/static/image/fish.jpg" alt="Рыба на гриле">
+                    <p>Рыба на гриле<br>400₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Аджапсандали','Аджапсандали — Ароматное овощное рагу из баклажанов, томатов, перца, картофеля, чеснока и зелени. Время приготовления: 40 минут', 1199)">
+                    <img src="/static/image/Ajapsahandali.jpg" alt="Асорда">
+                    <p>Аджапсандали<br>300₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Асорда','Асорда — Пряный кавказский суп с бараниной, томатами, луком, чесноком и зеленью. Время приготовления: 40 минут', 939)">
+                    <img src="/static/image/Asorda.jpg" alt="Асорда">
+                    <p>Асорда<br>359₽</p>
+                </div> 
+                <div class="card" onclick="showDetails('Фо','Фо вьетнамский суп — Легкий бульон с рисовой лапшой, говядиной или курицей, ароматными специями, зеленью и лаймом. Время приготовления: 1–1,5 часа.', 899)">
+                    <img src="/static/image/sup1.jpeg" alt="Асорда">
+                    <p>Фо<br>450₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Лагман','Лагман — Сытное блюдо из мяса, овощей и длинной лапши в ароматном соусе с восточными специями. Время приготовления: 1 час.', 899)">
+                    <img src="/static/image/lagman1.jpg" alt="Асорда">
+                    <p>Лагман<br>400₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Суп Тако ','Суп тако — Пряный мексиканский суп с фаршем, фасолью, томатами, кукурузой и специями, подается с сыром и тортильями. Время приготовления: 40 минут.', 899)">
+                    <img src="/static/image/Taco Soup.jpg" alt="Асорда">
+                    <p>Суп тако<br>350₽</p>
+                </div>
+            </div>
+        </section>
+        <section id="menu">
+            <h4>Салаты</h4>
+            <div class="card-container">
+                <div class="card" onclick="showDetails('Салат цезарь', 'Салат Цезарь — Легкий салат с хрустящими листьями романо, курицей, сухариками, пармезаном и фирменной заправкой. Время приготовления: 20 минут.', 350)">
+                    <img src="/static/image/salatcesar.jpg" alt="Лобстер">
+                    <p>Салат цезарь<br>350₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Салат из фруктов', 'Легкий десерт из свежих фруктов: яблок, бананов, киви, винограда и апельсинов, заправленный медом или йогуртом. Время приготовления: 10 минут.', 250)">
+                    <img src="/static/image/salatsladkye.jpg" alt="Лосось">
+                    <p>Салат из фруктов<br>250₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Салат Оливье', 'Классический салат с вареным картофелем, морковью, яйцами, колбасой, маринованными огурцами и зеленым горошком, заправленный майонезом. Время приготовления: 30 минут.', 300)">
+                    <img src="/static/image/oliviesalat.jpg" alt="Рыба на гриле">
+                    <p>Салат Оливье<br>300₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Салат Мизерия','Легкий польский салат из тонко нарезанных огурцов, сметаны, укропа и специй. Время приготовления: 10 минут', 200)">
+                    <img src="/static/image/mizeria.jpg" alt="Асорда">
+                    <p>Салат Мизерия<br>200₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Шопский Салат','Шопский салат — Освежающий балканский салат из помидоров, огурцов, болгарского перца, лука и белого сыра, заправленный оливковым маслом. Время приготовления: 15 минут', 250)">
+                    <img src="/static/image/Chopska.jpg" alt="Асорда">
+                    <p>Салат Шопский<br>250₽</p>
+                </div> 
+                <div class="card" onclick="showDetails('Картофельный Салат','Картофельный салат с репчатым луком в винегретной заправке — Сытный салат из вареного картофеля, тонко нарезанного репчатого лука и пикантной винегретной заправки. Время приготовления: 20 минут.', 220)">
+                    <img src="/static/image/SalatCartofel.jpg" alt="Асорда">
+                    <p>Картофельный Салат<br>220₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Салат Снежанка','Снежанка — Освежающий болгарский салат из йогурта, тертых огурцов, чеснока, укропа и грецких орехов. Время приготовления: 15 минут. Цена: 250 рублей.', 250)">
+                    <img src="/static/image/SnowSalad.jpg" alt="Асорда">
+                    <p>Салат Снежанка<br>250₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Кинилав','Кинилав — Филиппинский салат из свежей рыбы, маринованной в уксусе или соке лайма с добавлением кокосового молока, лука, имбиря, чили и огурцов. Время приготовления: 20 минут.', 350)">
+                    <img src="/static/image/kinilaw.JPG" alt="Асорда">
+                    <p>Салат Кинилав<br>350₽</p>
+                </div>
+            </div>
+        </section>
+        <section id="menu">
+         <h4>Десерты</h4>
+         <div class="card-container">
+            <div class="card" onclick="showDetails('Чизкейк', 'Нежный чизкейк с ванильным кремом и фруктами. Тонкая текстура, идеально сбалансированный вкус. Время приготовления: 10 минут. Сладкое наслаждение для ценителей десертов.', 499)">
+                <img src="/static/image/chesscake.jpg" alt="Чизкейк">
+                <p>Чизкейк<br>499₽</p>
+            </div>
+            <div class="card" onclick="showDetails('Афганское Печенье', 'Афганское печенье — Шоколадное печенье из мягкого теста с кукурузными хлопьями, украшенное шоколадной глазурью и орехами. Время приготовления: 5 минут', 110)">
+                <img src="/static/image/AfganCoockies.jpg" alt="Чизкейк">
+                <p>Афганское Печенье<br>110₽</p>
+            </div>
+            <div class="card" onclick="showDetails('Деман-ховла', 'Деман-ховла — Традиционная узбекская сладость из обжаренной муки, сахара, масла и специй, формируемая в виде ломтиков или шариков. Время приготовления: 15 минут.', 350)">
+                <img src="/static/image/Dema.jpg" alt="Чизкейк">
+                <p>Деман-ховла<br>350₽</p>
+            </div>
+            <div class="card" onclick="showDetails('Хлеб Десерт', 'Хлебный десерт — Простой и вкусный десерт из ломтиков хлеба, пропитанных молоком, сахаром и ванилью, запеченных с добавлением сухофруктов или орехов. Время приготовления: 15 минут.', 200)">
+                <img src="/static/image/Xlebdesert.jpg" alt="Чизкейк">
+                <p>Хлеб Десерт<br>200₽</p>
+            </div>
+         </div>
+        </section>
+        <section id="menu">
+            <div class="card-container">
+               <div class="card" onclick="showDetails('Банановый пудинг', 'Десерт из слоев ванильного крема, печенья и спелых бананов, украшенный взбитыми сливками. Время приготовления: 30 минут', 699)">
+                   <img src="/static/image/Banana_pudding.jpg" alt="банан">
+                   <p>Банановый пудинг<br>250₽</p>
+               </div>
+               <div class="card" onclick="showDetails('Пеламуши', 'Пеламуши — Традиционный грузинский десерт из виноградного сока и кукурузной муки, с нежной текстурой и сладким вкусом. Подается охлажденным, часто украшен орехами. Время приготовления: 15 минут', 300)">
+                <img src="/static/image/Pelamushy.jpg" alt="Чизкейк">
+                <p>Пеламуши<br>300₽</p>
+            </div>
+            <div class="card" onclick="showDetails('Гранита', 'Гранита — Освежающий итальянский десерт из замороженного фруктового сока или кофе с сахаром, разрыхленного в мелкие кристаллы. Время приготовления: 1-2 часа (включая заморозку).', 200)">
+                <img src="/static/image/Granite.JPG" alt="Чизкейк">
+                <p>Гранита<br>200₽</p>
+            </div>
+            <div class="card" onclick="showDetails('Мороженое из чёрной малины', 'Мороженое из чёрной малины — Кремовое мороженое с насыщенным вкусом свежей чёрной малины, приготовленное с добавлением сливок и сахара. Время приготовления: 5 минут', 300)">
+                <img src="/static/image/icecream.jpg" alt="Чизкейк">
+                <p>Мороженое из чёрной малины<br>300₽</p>
+            </div>
+            </div>
+           </section>
+        
+        <section id="drinks">
+            <h4>Напитки</h4>
+            <div class="card-container">
+                <div class="card" onclick="showDetails('Кофе капучино', 'Классический капучино с нежной пенкой из молока и эспрессо. Идеально для утреннего пробуждения или небольшого перерыва. Время приготовления: 5 минут.', 299)">
+                    <img src="/static/image/cappuchino.jpg" alt="Капучино">
+                    <p>Кофе капучино<br>299₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Чай зелёный', 'Свежезаваренный зелёный чай с ароматом жасмина и трав. Легкий и утоляющий жажду. Время приготовления: 3 минуты.', 199)">
+                    <img src="/static/image/zelenychai.jpg" alt="Чай">
+                    <p>Чай зелёный<br>199₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Американо', 'Классический чёрный кофе с мягким вкусом и богатым ароматом. Время приготовления: 5 минут. Отличный выбор для любителей крепкого кофе.', 199)">
+                    <img src="/static/image/image1_0.jpg" alt="Американо">
+                    <p>Американо<br>199₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Морс ягодный', 'Свежий ягодный морс с добавлением натурального меда. Натуральный вкус и витаминная поддержка. Время приготовления: 3 минуты.', 149)">
+                    <img src="/static/image/sok.jpg" alt="Морс">
+                    <p>Морс ягодный<br>149₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Свежий Айран', 'Свежий айран — Традиционный охлаждающий напиток из йогурта, воды и щепотки соли, идеально утоляющий жажду. Время приготовления: 5 минут. ', 100)">
+                    <img src="/static/image/ajran.jpg" alt="Чизкейк">
+                    <p>Свежий Айран<br>100₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Кайпиринья в стакане', 'Кайпиринья в стакане — Классический бразильский коктейль из кашасы, свежего лайма, тростникового сахара и льда, подается охлажденным. Время приготовления: 5 минут.', 300)">
+                    <img src="/static/image/Kajpirinia.jpg" alt="Чизкейк">
+                    <p>Кайпиринья в стакане<br>300₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Шпеци', 'Шпеци — Популярный немецкий напиток, представляющий собой смесь колы и апельсиновой газировки, освежающий и слегка сладкий. Время приготовления: 2 минуты. Цена:', 150)">
+                    <img src="/static/image/Spezi.jpg" alt="Чизкейк">
+                    <p>Шпеци<br>150₽</p>
+                </div>
+                <div class="card" onclick="showDetails('Шербет', 'Шербет — Освежающий фруктовый напиток с добавлением воды, сахара и ароматных добавок, таких как лимон, мята или роза. Время приготовления: 10 минут.', 200)">
+                    <img src="/static/image/Variyali.JPG" alt="Чизкейк">
+                    <p>Шербет<br>200₽</p>
+                </div>
+            </div>
+        </section>
+        <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="detailsTitle">Детали</h2>
+                <span class="modal-close" onclick="closeModal('detailsModal')">&times;</span>
+            </div>
+            <p id="detailsDescription">Описание блюда</p>
+            <p id="detailsPrice">Цена: 0₽</p>
+            <button class="order-button" onclick="orderItem()">Заказать</button>
+        </div>
+    </div>
+
+    <script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showDetails(title, description, price) {
+            document.getElementById('detailsTitle').innerText = title;
+            document.getElementById('detailsDescription').innerText = description;
+            document.getElementById('detailsPrice').innerText = `Цена: ${price}₽`;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function login() {
+            closeModal('loginModal');
+            alert('Добро пожаловать!');
+        }
+
+        function orderItem() {
+            alert('Блюдо добавлено в заказ!');
+            closeModal('detailsModal');
+        }
+
+        window.onload = () => {
+            document.getElementById('loginModal').style.display = 'flex';
+        };
+    </script>
+    </body>
+    </html>
