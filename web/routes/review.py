@@ -1,4 +1,3 @@
-from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from starlette.responses import FileResponse
 from web import app

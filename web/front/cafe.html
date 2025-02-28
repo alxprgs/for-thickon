@@ -6,6 +6,7 @@
     <title>Cafe Dolce Goose</title>
     <link rel="icon" href="/static/photo_2025-01-04_15-52-31.jpg" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/static/cafe.css">
 
     
@@ -13,7 +14,38 @@
 <body>
     <header>
         Добро пожаловать в наше Кафе!
+        <div class="auth-buttons">
+            <button onclick="openModal('registerModal')">Регистрация</button>
+            <button onclick="openModal('loginModal')">Вход</button>
+        </div>
+        <div class="cart-icon" onclick="openCart()">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="cart-badge" id="cartCounter">0</span>
+        </div>
     </header>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Регистрация</h2>
+                <span class="modal-close" onclick="closeModal('registerModal')">&times;</span>
+            </div>
+            <input type="tel" id="regPhone" placeholder="Номер телефона">
+            <input type="password" id="regPassword" placeholder="Пароль">
+            <input type="password" id="regRepeatPassword" placeholder="Повторите пароль">
+            <button onclick="register()">Зарегистрироваться</button>
+        </div>
+    </div>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Корзина</h2>
+                <span class="modal-close" onclick="closeModal('cartModal')">&times;</span>
+            </div>
+            <div id="cartItems"></div>
+            <p>Общая сумма: <span id="cartTotal">0</span>₽</p>
+            <button onclick="createOrder()">Оформить заказ</button>
+        </div>
+    </div>
 
     <aside class="navbar">
         <img src="/static/photo_2025-01-04_15-52-31.jpg" alt="Лого">
@@ -97,34 +129,278 @@
             </div>
             <p id="detailsDescription">Описание блюда</p>
             <p id="detailsPrice">Цена: 0₽</p>
-            <button class="order-button" onclick="orderItem()">Заказать</button>
+            <button class="order-button" onclick="orderItem()">Добавить в корзину</button>
         </div>
     </div>
 
     <script>
+        const API_BASE_URL = 'https://api.prghorse.ru/v1';
+        
+        function getCSRFToken() {
+            const token = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('csrf_token'))
+                ?.split('=')[1];
+            
+            if (!token) {
+                console.warn('CSRF Token not found!');
+            }
+            return token;
+        }
+            
+        async function checkAuth() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/check_auth`, {
+                    credentials: 'include'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                console.log(result);
+                return { status: result };
+            } catch (error) {
+                console.log(false);
+                return { status: false };
+            }
+        }
+    
+        async function updateCartCounter() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/items`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                document.getElementById('cartCounter').textContent = data.cart?.length || 0;
+            } catch (error) {
+                console.error('Ошибка обновления корзины:', error);
+            }
+        }
+    
+        async function openCart() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/items`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                let html = '';
+                let total = 0;
+                
+                data.cart?.forEach(item => {
+                    html += `
+                        <div class="cart-item">
+                            ${item.name} - ${item.quantity} × ${item.price}₽
+                            <button onclick="updateQuantity('${item.cart_id}', ${item.quantity + 1})">+</button>
+                            <button onclick="updateQuantity('${item.cart_id}', ${item.quantity - 1})">-</button>
+                            <button onclick="removeItem('${item.cart_id}')">×</button>
+                        </div>
+                    `;
+                    total += item.price * item.quantity;
+                });
+    
+                document.getElementById('cartItems').innerHTML = html;
+                document.getElementById('cartTotal').textContent = total.toFixed(2);
+                document.getElementById('cartModal').style.display = 'flex';
+            } catch (error) {
+                console.error('Ошибка загрузки корзины:', error);
+            }
+        }
+    
+        async function updateQuantity(cartId, newQuantity) {
+            if(newQuantity < 1) return;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/items/${cartId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ quantity: newQuantity })
+                });
+                
+                if(response.ok) {
+                    await openCart();
+                    await updateCartCounter();
+                }
+            } catch (error) {
+                console.error('Ошибка обновления:', error);
+            }
+        }
+    
+        async function removeItem(cartId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/items/${cartId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-Token': getCSRFToken()
+                    },
+                    credentials: 'include'
+                });
+                
+                if(response.ok) {
+                    await openCart();
+                    await updateCartCounter();
+                }
+            } catch (error) {
+                console.error('Ошибка удаления:', error);
+            }
+        }
+    
+        async function createOrder() {
+            const csrfToken = getCSRFToken();
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/order`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    },
+                    credentials: 'include'
+                });
+    
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.detail || 'Ошибка оформления заказа');
+                }
+    
+                window.location.href = result.payment_url;
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    
+        async function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+    
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    credentials: "include",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        login: username,
+                        password: password
+                    })
+                });
+    
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.message || 'Ошибка авторизации');
+                }
+    
+                alert('Вход выполнен успешно!');
+                closeModal('loginModal');
+                location.reload();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    
+        async function register() {
+            const phone = document.getElementById('regPhone').value;
+            const password = document.getElementById('regPassword').value;
+            const repeatPassword = document.getElementById('regRepeatPassword').value;
+    
+            try {
+                const response = await fetch(`${API_BASE_URL}/reg`, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({
+                        login: phone,
+                        password: password,
+                        repetition_password: repeatPassword
+                    })
+                });
+    
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.error || 'Ошибка регистрации');
+                }
+    
+                alert('Регистрация успешна!');
+                closeModal('registerModal');
+                location.reload();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    
+        async function orderItem() {
+            const authCheck = await checkAuth();
+            if (!authCheck.status) {
+                alert('Пожалуйста, войдите в систему!');
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            }
+    
+            const name = document.getElementById('detailsTitle').innerText;
+            const price = parseFloat(document.getElementById('detailsPrice').innerText.match(/[\d.]+/)[0]);
+            const csrfToken = getCSRFToken();
+    
+            try {
+                const response = await fetch(`${API_BASE_URL}/cart/items`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken
+                    },
+                    credentials: 'include', 
+                    body: JSON.stringify({
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    })
+                });
+    
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.detail || `Ошибка: ${response.status}`);
+                }
+    
+                alert(result.message);
+                closeModal('detailsModal');
+                await updateCartCounter();
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert(error.message);
+            }
+        }
+    
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
-
+    
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+    
         function showDetails(title, description, price) {
             document.getElementById('detailsTitle').innerText = title;
             document.getElementById('detailsDescription').innerText = description;
             document.getElementById('detailsPrice').innerText = `Цена: ${price}₽`;
             document.getElementById('detailsModal').style.display = 'flex';
         }
-
-        function login() {
-            closeModal('loginModal');
-            alert('Добро пожаловать!');
-        }
-
-        function orderItem() {
-            alert('Блюдо добавлено в заказ!');
-            closeModal('detailsModal');
-        }
-
-        window.onload = () => {
-            document.getElementById('loginModal').style.display = 'flex';
+    
+        window.onload = async () => {
+            const authStatus = await checkAuth();
+            if(!authStatus.status) {
+                document.getElementById('loginModal').style.display = 'flex';
+            }
+            await updateCartCounter();
         };
     </script>
 </body>
