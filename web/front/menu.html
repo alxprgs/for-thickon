@@ -193,31 +193,17 @@
         </div>
     </div>
 
-    <script>
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function showDetails(title, description, price) {
-            document.getElementById('detailsTitle').innerText = title;
-            document.getElementById('detailsDescription').innerText = description;
-            document.getElementById('detailsPrice').innerText = `Цена: ${price}₽`;
-            document.getElementById('detailsModal').style.display = 'flex';
-        }
-
-        function login() {
-            closeModal('loginModal');
-            alert('Добро пожаловать!');
-        }
-
-        function orderItem() {
-            alert('Блюдо добавлено в заказ!');
-            closeModal('detailsModal');
-        }
-
-        window.onload = () => {
-            document.getElementById('loginModal').style.display = 'flex';
-        };
-    </script>
+    <script src="/static/js/checkAuth.js"></script>
+    <script src="/static/js/createOrder.js"></script>
+    <script src="/static/js/getCSRFToken.js"></script>
+    <script src="/static/js/login.js"></script>
+    <script src="/static/js/modal.js"></script>
+    <script src="/static/js/openCart.js"></script>
+    <script src="/static/js/orderItem.js"></script>
+    <script src="/static/js/register.js"></script>
+    <script src="/static/js/removeItem.js"></script>
+    <script src="/static/js/showDetails.js"></script>
+    <script src="/static/js/updateCartCounter.js"></script>
+    <script src="/static/js/updateQuantity.js"></script>
     </body>
     </html>
