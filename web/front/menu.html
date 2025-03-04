@@ -11,7 +11,38 @@
 <body>
     <header>
         Добро пожаловать в наше Кафе!
+        <div class="auth-buttons">
+            <button onclick="openModal('registerModal')">Регистрация</button>
+            <button onclick="openModal('loginModal')">Вход</button>
+        </div>
+        <div class="cart-icon" onclick="openCart()">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="cart-badge" id="cartCounter">0</span>
+        </div>
     </header>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Регистрация</h2>
+                <span class="modal-close" onclick="closeModal('registerModal')">&times;</span>
+            </div>
+            <input type="tel" id="regPhone" placeholder="Номер телефона">
+            <input type="password" id="regPassword" placeholder="Пароль">
+            <input type="password" id="regRepeatPassword" placeholder="Повторите пароль">
+            <button onclick="register()">Зарегистрироваться</button>
+        </div>
+    </div>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Корзина</h2>
+                <span class="modal-close" onclick="closeModal('cartModal')">&times;</span>
+            </div>
+            <div id="cartItems"></div>
+            <p>Общая сумма: <span id="cartTotal">0</span>₽</p>
+            <button onclick="createOrder()">Оформить заказ</button>
+        </div>
+    </div>
 
     <aside class="navbar">
         <img src="/static/photo_2025-01-04_15-52-31.jpg" alt="Лого">
