@@ -4,25 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Dolce Goose</title>
-    <link rel="icon" href="/static/photo_2025-01-04_15-52-31.jpg" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="/static/image/photo_2025-01-04_15-52-31.jpg" type="image/png">
     <link rel="stylesheet" href="/static/cafe.css">
-
-    
 </head>
 <body>
-    <header>
-        Добро пожаловать в наше Кафе!
-        <div class="auth-buttons">
-            <button onclick="openModal('registerModal')">Регистрация</button>
-            <button onclick="openModal('loginModal')">Вход</button>
-        </div>
-        <div class="cart-icon" onclick="openCart()">
-            <i class="fas fa-shopping-cart fa-2x"></i>
-            <span class="cart-badge" id="cartCounter">0</span>
-        </div>
-    </header>
+    <script src="/static/js/loadHeader.js"></script>
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -48,7 +34,7 @@
     </div>
 
     <aside class="navbar">
-        <img src="/static/photo_2025-01-04_15-52-31.jpg" alt="Лого">
+        <img src="/static/image/photo_2025-01-04_15-52-31.jpg" alt="Лого">
         <ul>
             <li><a href="#home">Главная</a></li>
             <li><a href="/review">Отзывы</a></li>

@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('Снимок.JPG');
+    background-image: url('image/Снимок.JPG');
     background-size: cover;
     background-position: center;
     color: white;
@@ -234,28 +234,3 @@ body {
     text-align: center;
     margin: 20px 0; 
   }
-  .auth-buttons {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.cart-icon {
-    position: fixed;
-    top: 15px;
-    right: 230px;
-    cursor: pointer;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-}

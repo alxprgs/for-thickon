@@ -26,6 +26,8 @@ body {
     }
     
     .navbar {
+    position: fixed;
+    z-index: 999;
     height: 100vh;
     width: 250px;
     background-color: #1f3d1f;
@@ -86,9 +88,10 @@ body {
     
     .content {
     margin-left: 250px;
-    padding: 20px;
+    padding: 90px 20px 20px;
     }
     
+
     .card-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -231,29 +234,4 @@ body {
     color: white; 
     text-align: center;
     margin: 20px 0; 
-    }
-    .auth-buttons {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        display: flex;
-        gap: 10px;
-    }
-    
-    .cart-icon {
-        position: fixed;
-        top: 15px;
-        right: 230px;
-        cursor: pointer;
-    }
-    
-    .cart-badge {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        background: red;
-        color: white;
-        border-radius: 50%;
-        padding: 2px 6px;
-        font-size: 12px;
     }
