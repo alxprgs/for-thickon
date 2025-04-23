@@ -2,6 +2,7 @@ async function login() {
     const API_BASE_URL = 'https://api.prghorse.ru/v1';
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
+    const captchaToken = document.querySelector('input[name="cf-turnstile-response"]').value;
 
     try {
         const response = await fetch(`${API_BASE_URL}/login`, {
@@ -12,12 +13,11 @@ async function login() {
             },
             body: JSON.stringify({
                 login: username,
-                password: password
+                password: password,
             })
         });
 
         const result = await response.json();
-        
         if (!response.ok) {
             throw new Error(result.message || 'Ошибка авторизации');
         }

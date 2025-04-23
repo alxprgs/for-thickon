@@ -11,6 +11,34 @@ body {
     width: 100%;
   }
   
+  .auth-input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #3d5f3d;
+    color: white;
+    font-size: 1em;
+}
+
+.auth-button {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-button:hover {
+    background-color: #45a049;
+    transform: scale(1.03);
+}
+  
   
   
   header {

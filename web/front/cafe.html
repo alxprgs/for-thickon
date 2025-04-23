@@ -6,6 +6,7 @@
     <title>Cafe Dolce Goose</title>
     <link rel="icon" href="/static/image/photo_2025-01-04_15-52-31.jpg" type="image/png">
     <link rel="stylesheet" href="/static/cafe.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <script src="/static/js/loadHeader.js"></script>
@@ -15,11 +16,14 @@
                 <h2>Регистрация</h2>
                 <span class="modal-close" onclick="closeModal('registerModal')">&times;</span>
             </div>
-            <input type="tel" id="regPhone" placeholder="Номер телефона">
-            <input type="password" id="regPassword" placeholder="Пароль">
-            <input type="password" id="regRepeatPassword" placeholder="Повторите пароль">
-            <button onclick="register()">Зарегистрироваться</button>
+            <input class="auth-input" type="text" id="regName" placeholder="Имя">
+            <input class="auth-input" type="tel" id="regPhone" placeholder="Номер телефона">
+            <input class="auth-input" type="password" id="regPassword" placeholder="Пароль">
+            <input class="auth-input" type="password" id="regRepeatPassword" placeholder="Повторите пароль">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABSSwGeKkYJ2bTTh"></div>
+            <button class="auth-button" onclick="register()">Зарегистрироваться</button>
         </div>
+    </div>
     </div>
     <div id="cartModal" class="modal">
         <div class="modal-content">
@@ -101,9 +105,10 @@
                 <h2>Вход</h2>
                 <span class="modal-close" onclick="closeModal('loginModal')">&times;</span>
             </div>
-            <input type="text" id="loginUsername" placeholder="Логин">
-            <input type="password" id="loginPassword" placeholder="Пароль">
-            <button onclick="login()">Войти</button>
+            <input class="auth-input" type="text" id="loginUsername" placeholder="Логин">
+            <input class="auth-input" type="password" id="loginPassword" placeholder="Пароль">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABSSwGeKkYJ2bTTh"></div>
+            <button class="auth-button" onclick="login()">Войти</button>
         </div>
     </div>
 
